@@ -694,3 +694,16 @@ nav > div > div > div > ul > li > a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+@keyframes fadeOutLeft {
+  from { opacity: 1 }
+  to {
+      opacity: 0;
+  }
+}
+
+.fadeoutLeft {
+  animation-name: fadeOutLeft;
+  animation-duration: 3s;
+}
