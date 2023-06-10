@@ -3,16 +3,16 @@ import { navbar } from "./data/navbar";
 import Typed from "react-typed";
 import Lottie from "lottie-react";
 import loader from "../public/loader.json";
-import { useEffect, useState } from "react";
-import { homePageProjects } from "./data/homepageprojects";
+import languages from "../public/languages.json";
+import { useState } from "react";
+import { homePageProjects } from "./data/homePageProjects";
+import { experience } from "./data/experience";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
-  const options = {
-    animationData: loader,
-  };
-  const [showTransition, setShowTransition] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [startAnimation, setStartAnimation] = useState(false);
+  const router = useRouter();
 
   setTimeout(() => {
     setShowContent(true);
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
                     {navbar.map((n) => (
                       <li style={{ color: "#000" }}>
                         <a
-                          href=""
+                          href={n.route}
                           style={{
                             color: "#000",
                             margin: 20,
@@ -235,11 +235,160 @@ const Home: NextPage = () => {
           >
             More Projects <i className="fa fa-arrow-right" />
           </button>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
+            <h1
+              style={{
+                fontSize: "10vw",
+                color: "#fff",
+                fontFamily: "'Roboto Condensed', sans-serif",
+                letterSpacing: 5,
+                textTransform: "uppercase",
+                marginBottom: 20,
+              }}
+            >
+              My Experience
+            </h1>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+
+                marginTop: 20,
+              }}
+            >
+              <div
+                style={{
+                  alignItems: "flex-start",
+                  justifyContent: "flex-start",
+                  display: "flex",
+                  marginRight: -200,
+                }}
+              >
+                <Lottie
+                  animationData={languages}
+                  style={{
+                    width: "60%",
+                    height: "60%",
+                    position: "relative",
+                    left: 100,
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  alignItems: "flex-end",
+                  justifyContent: "flex-end",
+                  display: "flex",
+                  position: "relative",
+                  flexDirection: "column",
+                  right: 100,
+                  bottom: 50,
+                }}
+              >
+                <h1
+                  style={{
+                    fontSize: "5vw",
+                    color: "#fff",
+                    fontFamily: "'Roboto Condensed', sans-serif",
+                    letterSpacing: 5,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Knowledge In...
+                </h1>
+                <ul
+                  style={{
+                    listStyleType: "circle",
+                    maxWidth: 700,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignContent: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                    left: 60,
+                    marginTop: -20,
+                  }}
+                >
+                  {experience.map((e) => (
+                    <div style={{ display: "flex" }}>
+                      <li
+                        style={{
+                          color: "#fff",
+                          fontSize: 23,
+                          listStyleType: "circle",
+                          marginBottom: 20,
+                          fontFamily: "'Roboto Condensed', sans-serif",
+                        }}
+                      >
+                        {e}
+                      </li>
+                    </div>
+                  ))}
+                  <p
+                    style={{
+                      marginTop: 0,
+                      color: "#67D9EC",
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                      fontFamily: "'Roboto Condensed', sans-serif",
+                    }}
+                  >
+                    View more in timeline
+                  </p>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <footer
+            style={{
+              backgroundColor: "#692A99",
+              width: "100%",
+              marginTop: 200,
+              height: "35vh",
+            }}
+          >
+            <section className="footer__top">
+              <div
+                className="footer__inner"
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <p
+                  className="text--small"
+                  style={{ fontFamily: "'Roboto Condensed', sans-serif" }}
+                >
+                  Want to get in touch?
+                </p>
+                <h2
+                  className="section__title"
+                  style={{
+                    width: 500,
+                    marginTop: 10,
+                  }}
+                >
+                  <a
+                    href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSGLPsFFcMKrKkxjfGmTksMKRMwxTwXlGnFLQFBdgDjHSQrBDzNFkmBLmgMzjrJbKllzQDfr"
+                    className="email"
+                  >
+                    Email me here
+                  </a>
+                </h2>
+              </div>
+            </section>
+          </footer>
         </div>
       </div>
     </>
