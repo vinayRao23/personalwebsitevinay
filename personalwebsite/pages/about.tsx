@@ -174,6 +174,7 @@ const about = () => {
                     border: "5px solid #fff",
                     objectFit: "cover",
                   }}
+                  className="about"
                 />
               </div>
             </div>

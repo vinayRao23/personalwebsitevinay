@@ -1704,3 +1704,12 @@ button {
  .animatein {
   animation: fadeIn ease 0.4s;
 }
+
+.about:hover {
+  box-shadow: 1px 1px 10px 10px #fff;
+  cursor: pointer;
+}
+
+.about {
+  transition: 0.3s all ;
+}
