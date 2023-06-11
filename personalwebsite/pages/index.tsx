@@ -8,6 +8,7 @@ import { useState } from "react";
 import { homePageProjects } from "./data/homePageProjects";
 import { experience } from "./data/experience";
 import { useRouter } from "next/router";
+import { Navigation } from "../components/Navigation";
 
 const Home: NextPage = () => {
   const [showContent, setShowContent] = useState(false);
@@ -58,50 +59,7 @@ const Home: NextPage = () => {
           </div>
         )}
         <div>
-          <nav
-            style={{
-              position: "relative",
-              alignItems: "center",
-              justifyContent: "center",
-              display: "flex",
-            }}
-          >
-            <div>
-              <div>
-                <div>
-                  <ul>
-                    {navbar.map((n) => (
-                      <li style={{ color: "#000" }}>
-                        <a
-                          href={n.route}
-                          style={{
-                            color: "#000",
-                            margin: 20,
-                            fontFamily: "'Roboto Condensed', sans-serif",
-                          }}
-                        >
-                          / /
-                          <p style={{ position: "relative", left: "20%" }}>
-                            {n.tab}
-                            <sup
-                              style={{
-                                color: "#fff",
-                                fontSize: "1rem",
-                                marginLeft: 5,
-                                marginTop: -20,
-                              }}
-                            >
-                              {n.number}
-                            </sup>
-                          </p>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </nav>
+          <Navigation navbar={navbar} />
         </div>
         <h1
           style={{
