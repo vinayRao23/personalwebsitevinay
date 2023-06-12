@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navigation } from "../components/Navigation";
 import { navbar } from "./data/navbar";
 import { traits } from "./data/traits";
@@ -8,7 +8,7 @@ const about = () => {
     <div
       style={{
         backgroundColor: "#1A191E",
-        height: "240vw",
+        height: "100%",
       }}
     >
       <div
@@ -26,9 +26,10 @@ const about = () => {
           alignItems: "flex-start",
           justifyContent: "flex-start",
           display: "flex",
-          marginLeft: 400,
+          marginLeft: "20%",
           marginTop: 50,
         }}
+        className="aboutImg"
       >
         <img
           src="/pfp.jpeg"

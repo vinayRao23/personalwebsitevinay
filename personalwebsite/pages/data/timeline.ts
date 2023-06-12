@@ -77,11 +77,18 @@ export const timelineData: Array<{
     icon: "fa fa-comment",
   },
   {
+    name: "VinaysReviews",
+    description: `An all-in-one review app to rate your favorite books`,
+    date: "May 2021",
+    icon: "fa fa-book",
+  },
+  {
     name: "The Creation of SketchDeck",
     description: `A web app inspired by skribbl.io. Have fun while putting your artistic skills to the test.`,
     date: "Jun. 2021",
     icon: "fa fa-pencil",
   },
+
   {
     name: "Software Engineer Volunteer At Local Temple",
     description: `In the experience I helped build a NLP based chat bot, and a real time radio player`,
@@ -100,7 +107,12 @@ export const timelineData: Array<{
     date: "Nov. 2021",
     icon: "fa fa-close",
   },
-
+  {
+    name: "Vibes",
+    description: `An advanced music player capable of doing it all.`,
+    date: "Dec. 2021",
+    icon: "fa fa-music",
+  },
   {
     name: "The Categories Game",
     description: `The best app I have built so far. A immersive game following the popular trend of wordle`,

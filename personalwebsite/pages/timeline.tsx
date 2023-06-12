@@ -10,7 +10,7 @@ const timeline = () => {
   return (
     <div
       style={{
-        height: "100vh",
+        height: "100%",
         backgroundColor: "#1A191E",
         overflowY: "scroll",
         overflowX: "hidden",

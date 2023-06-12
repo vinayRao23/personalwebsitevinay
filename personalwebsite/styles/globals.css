@@ -1713,3 +1713,9 @@ button {
 .about {
   transition: 0.3s all ;
 }
+
+@media screen and (min-width: 1000px) and (max-width: 1440px) {
+.aboutImg {
+  margin-left: 10% !important;
+}
+}

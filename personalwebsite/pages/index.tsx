@@ -299,6 +299,7 @@ const Home: NextPage = () => {
                       cursor: "pointer",
                       fontFamily: "'Roboto Condensed', sans-serif",
                     }}
+                    onClick={() => router.push("/timeline")}
                   >
                     View more in timeline
                   </p>
