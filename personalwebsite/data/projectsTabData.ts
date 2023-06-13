@@ -1,4 +1,4 @@
-export const projectsTabData: Array<{
+const projectsTabData: Array<{
   name: string;
   description: string;
   src: string;
@@ -71,3 +71,5 @@ export const projectsTabData: Array<{
     link: "https://github.com/nikhil23-Rao/dvrdevtourney",
   },
 ];
+
+export default projectsTabData;

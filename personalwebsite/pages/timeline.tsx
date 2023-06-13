@@ -1,12 +1,12 @@
 import { Navigation } from "../components/Navigation";
-import { navbar } from "./data/navbar";
+import navbar from "../data/navbar";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import { timelineData } from "./data/timeline";
+import timelineData from "../data/timeline";
 
-const timeline = () => {
+const Timeline = () => {
   return (
     <div
       style={{
@@ -63,7 +63,7 @@ const timeline = () => {
         }}
       >
         <VerticalTimeline>
-          {timelineData.map((t) => (
+          {timelineData.map((t, idx) => (
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               contentStyle={{ background: "#310880", opacity: 0.8 }}
@@ -82,6 +82,7 @@ const timeline = () => {
                 fontFamily: "'Roboto Condensed', sans-serif",
                 color: "#fff",
               }}
+              key={idx}
             >
               <h3
                 className="vertical-timeline-element-title"
@@ -106,4 +107,4 @@ const timeline = () => {
   );
 };
 
-export default timeline;
+export default Timeline;

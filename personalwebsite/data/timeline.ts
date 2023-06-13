@@ -1,4 +1,4 @@
-export const timelineData: Array<{
+const timelineData: Array<{
   name: string;
   description: string;
   date: string;
@@ -139,7 +139,7 @@ export const timelineData: Array<{
   },
   {
     name: "Team 5776A",
-    description: `Drafted to one of DVHS's 4 competitive Robotics teams`,
+    description: `Drafted to one of DVHS 4 competitive Robotics teams`,
     date: "May 2023-pres.",
     icon: "fa fa-android",
   },
@@ -150,3 +150,5 @@ export const timelineData: Array<{
     icon: "fa fa-android",
   },
 ];
+
+export default timelineData;

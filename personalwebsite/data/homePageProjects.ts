@@ -1,4 +1,4 @@
-export const homePageProjects = [
+const homePageProjects = [
   {
     name: "Categories",
     description: "A Wordle Type Thinking Puzzle.",
@@ -20,3 +20,5 @@ export const homePageProjects = [
     src: "/python.png",
   },
 ];
+
+export default homePageProjects;

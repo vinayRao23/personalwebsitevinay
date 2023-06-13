@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import { Navigation } from "../components/Navigation";
-import { navbar } from "./data/navbar";
-import { projectsTabData } from "./data/projectsTabData";
+import navbar from "../data/navbar";
+import projectsTabData from "../data/projectsTabData";
 
-const projects = () => {
+const Projects = () => {
   const router = useRouter();
 
   return (
@@ -47,7 +47,7 @@ const projects = () => {
             marginTop: -20,
           }}
         >
-          Here are some of the projects I've made over the years...
+          Here are some of the projects I&apos;ve made over the years...
         </p>
         <div
           style={{
@@ -57,7 +57,7 @@ const projects = () => {
             alignItems: "center",
           }}
         >
-          {projectsTabData.map((p) => (
+          {projectsTabData.map((p, idx) => (
             <div
               className="card"
               style={{
@@ -68,6 +68,7 @@ const projects = () => {
                 marginRight: 50,
               }}
               onClick={() => router.push(p.link)}
+              key={idx}
             >
               <div className="container-card bg-green-box">
                 <p
@@ -113,4 +114,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default Projects;

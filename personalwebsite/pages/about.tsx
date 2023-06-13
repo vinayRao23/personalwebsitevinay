@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Navigation } from "../components/Navigation";
-import { navbar } from "./data/navbar";
-import { traits } from "./data/traits";
+import navbar from "../data/navbar";
+import traits from "../data/traits";
 
-const about = () => {
+const About = () => {
   return (
     <div
       style={{
@@ -66,7 +66,7 @@ const about = () => {
               width: "100%",
             }}
           >
-            I'm Vinay.
+            I&apos;m Vinay.
           </h1>
           <p
             style={{
@@ -119,13 +119,14 @@ const about = () => {
         className="gridlayout"
         style={{ overflowY: "hidden", marginTop: 100 }}
       >
-        {traits.map((t) => (
+        {traits.map((t, idx) => (
           <div
             style={{
               overflowX: "hidden",
               backgroundColor: "#310880",
               opacity: 0.8,
             }}
+            key={idx}
           >
             <div className="griditem">
               <div
@@ -186,4 +187,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;

@@ -1,4 +1,4 @@
-export const experience = [
+const experience = [
   "Programmer for 5 years",
   `Proficient in Python, Javascript, Java, Typescript, SQL,
 MongoDB, Firebase, NodeJS, GraphQL, ReactJS, React
@@ -11,3 +11,5 @@ Temple`,
   `Competitive Robotics Member (Team 5776A)`,
   `Robotics Summer Camp Mentor (2023)`,
 ];
+
+export default experience;

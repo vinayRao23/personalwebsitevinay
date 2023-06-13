@@ -16,8 +16,8 @@ export const Navigation = ({ navbar }: IProps) => {
         <div>
           <div>
             <ul>
-              {navbar.map((n) => (
-                <li style={{ color: "#000" }}>
+              {navbar.map((n, idx) => (
+                <li style={{ color: "#000" }} key={idx}>
                   <a
                     href={n.route}
                     style={{

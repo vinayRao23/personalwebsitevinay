@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
-import { navbar } from "./data/navbar";
+import navbar from "../data/navbar";
 import Typed from "react-typed";
 import Lottie from "lottie-react";
 import loader from "../public/loader.json";
 import languages from "../public/languages.json";
 import { useState } from "react";
-import { homePageProjects } from "./data/homePageProjects";
-import { experience } from "./data/experience";
+import homePageProjects from "../data/homePageProjects";
+import experience from "../data/experience";
 import { useRouter } from "next/router";
 import { Navigation } from "../components/Navigation";
 
@@ -133,10 +133,11 @@ const Home: NextPage = () => {
           </h1>
           <div className="container" style={{ width: "100%" }}>
             <div className="gradient-cards">
-              {homePageProjects.map((p) => (
+              {homePageProjects.map((p, idx) => (
                 <div
                   className="card"
                   style={{ zIndex: 200, backgroundColor: "#1A191D" }}
+                  key={idx}
                 >
                   <div className="container-card bg-green-box">
                     <p
@@ -190,6 +191,7 @@ const Home: NextPage = () => {
               fontFamily: "'Roboto Condensed', sans-serif",
               cursor: "pointer",
             }}
+            onClick={() => router.push("/projects")}
           >
             More Projects <i className="fa fa-arrow-right" />
           </button>
@@ -276,8 +278,8 @@ const Home: NextPage = () => {
                     marginTop: -20,
                   }}
                 >
-                  {experience.map((e) => (
-                    <div style={{ display: "flex" }}>
+                  {experience.map((e, idx) => (
+                    <div style={{ display: "flex" }} key={idx}>
                       <li
                         style={{
                           color: "#fff",
