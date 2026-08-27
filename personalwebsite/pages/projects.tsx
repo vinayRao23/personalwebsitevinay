@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { Navigation } from "../components/Navigation";
 import navbar from "../data/navbar";
 import projectsTabData from "../data/projectsTabData";
+import { ScrollFadeIn } from "../components/ScrollFadeIn";
 
 const Projects = () => {
   const router = useRouter();
@@ -9,104 +10,58 @@ const Projects = () => {
   return (
     <div
       style={{
-        height: "100vh",
+        minHeight: "100vh",
         backgroundColor: "#1A191E",
-        overflowY: "scroll",
-        overflowX: "hidden",
         display: "flex",
         flexDirection: "column",
+        paddingBottom: "60px",
       }}
     >
       <Navigation navbar={navbar} />
-      <div
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <h1
-          className="gradient"
-          style={{
-            color: "#fff",
-            zIndex: 200,
-            fontFamily: "'Roboto Condensed', sans-serif",
-            fontSize: "3.5vw",
-          }}
-        >
-          My Projects
-        </h1>
-        <p
-          style={{
-            color: "#67D9EC",
-            maxWidth: 700,
-            textAlign: "center",
-            fontSize: "1vw",
-            fontFamily: "'Roboto Condensed', sans-serif",
-            marginTop: -20,
-          }}
-        >
-          Here are some of the projects I&apos;ve made over the years...
-        </p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "auto auto auto",
-            margin: 20,
-            alignItems: "center",
-          }}
-        >
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 20px", width: "100%" }}>
+        <ScrollFadeIn>
+          <h1 className="section-title">My Projects</h1>
+          <p
+            style={{
+              color: "#67D9EC",
+              textAlign: "center",
+              fontSize: "1.2rem",
+              marginBottom: "40px",
+            }}
+          >
+            A collection of software projects, applications, and research work I&apos;ve built.
+          </p>
+        </ScrollFadeIn>
+
+        <div className="cards-grid">
           {projectsTabData.map((p, idx) => (
-            <div
-              className="card"
-              style={{
-                zIndex: 200,
-                backgroundColor: "#1A191D",
-                marginTop: 50,
-                marginLeft: 50,
-                marginRight: 50,
-              }}
-              onClick={() => router.push(p.link)}
-              key={idx}
-            >
-              <div className="container-card bg-green-box">
-                <p
-                  className="card-title"
-                  style={{
-                    fontFamily: "'Roboto Condensed', sans-serif",
-                    textTransform: "uppercase",
-                    borderBottom: "2px solid #E1068C",
-                    marginBottom: 5,
-                  }}
-                >
-                  {p.name}
-                </p>
-                <img
-                  src={p.src}
-                  alt=""
-                  style={{
-                    position: "absolute",
-                    width: 50,
-                    height: 50,
-                    top: 20,
-                    right: 20,
-                  }}
-                />
-                <div style={{ zIndex: 200 }}>
-                  <p
-                    className="card-description"
-                    style={{
-                      color: "#fff",
-                      fontFamily: "'Roboto Condensed', sans-serif",
-                      maxWidth: "100%",
-                    }}
-                  >
-                    {p.description}
-                  </p>
+            <ScrollFadeIn key={idx} delay={idx * 100}>
+              <div
+                className="pro-card"
+                style={{ cursor: p.link ? "pointer" : "default", height: "100%" }}
+                onClick={() => p.link && window.open(p.link, "_blank")}
+              >
+                <div>
+                  <div className="pro-card-header">
+                    <h3 className="pro-card-title">{p.name}</h3>
+                    {p.src && (
+                      <img
+                        src={p.src}
+                        alt={p.name}
+                        className="pro-card-icon"
+                        style={{ width: "36px", height: "36px", objectFit: "contain", borderRadius: "6px" }}
+                      />
+                    )}
+                  </div>
+                  <p className="pro-card-desc">{p.description}</p>
                 </div>
+                {p.link && (
+                  <div className="pro-card-link">
+                    <span>View Project Repository →</span>
+                  </div>
+                )}
               </div>
-            </div>
+            </ScrollFadeIn>
           ))}
         </div>
       </div>

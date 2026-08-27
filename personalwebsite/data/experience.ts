@@ -1,15 +1,11 @@
 const experience = [
-  "Programmer for 5 years",
-  `Proficient in Python, Javascript, Java, Typescript, SQL,
-MongoDB, Firebase, NodeJS, GraphQL, ReactJS, React
-Native, NextJS, HTML5, CSS3, Cloud Platforms and more!`,
-  `
-Top 4 Finalist in annual Raspberry Pi Hackathon (2020)`,
-  `Participated in 4+ Hackathons`,
-  `  Summer Full Stack Developer for Livermore Shiva-Vishnu
-Temple`,
-  `Competitive Robotics Member (Team 5776A)`,
-  `Robotics Summer Camp Mentor (2023)`,
+  "Student at UC Berkeley",
+  "LLM Researcher @ EPIC Data Lab (Reduced LLM API costs by 35.2%)",
+  "Co-Founder @ VertexStudy LLC ($250k valuation, 1,500+ active users)",
+  "Software Engineer Intern @ Practice with Praveena & Shiva Vishnu Temple",
+  "Lead Software Engineer @ Redevs (Building sites for 25+ non-profits)",
+  `Proficient in Python, TypeScript, JavaScript, Java, C/C++, Swift, SQL, Next.js, React, React Native, Node.js, Azure, GCP, AWS, Firebase, Supabase, PostgreSQL, GraphQL & CoreML`,
+  "Building For Tomorrow with Gemini API Badge & 2x AP Scholar with Distinction",
 ];
 
 export default experience;
