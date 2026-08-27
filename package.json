@@ -1,0 +1,13 @@
+{
+  "name": "personalwebsitevinay-root",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "npm --prefix personalwebsite run dev",
+    "build": "npm --prefix personalwebsite run build",
+    "start": "npm --prefix personalwebsite run start",
+    "lint": "npm --prefix personalwebsite run lint"
+  }
+}
