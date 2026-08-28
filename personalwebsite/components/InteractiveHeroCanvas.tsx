@@ -249,24 +249,27 @@ export const InteractiveHeroCanvas = () => {
 
   const w = dimensions.width;
   const h = dimensions.height;
+  const isMobile = w < 768;
+  const scale = isMobile ? 0.55 : 1;
 
   // Clustered initial positions around center
-  const centerX = w * 0.47;
-  const centerY = h * 0.35;
+  const centerX = isMobile ? w * 0.5 : w * 0.47;
+  const centerY = isMobile ? h * 0.38 : h * 0.35;
+  const spread = isMobile ? 0.45 : 1;
 
   const shapePositions = {
-    topCube: { x: centerX - 120, y: centerY - 90 },
-    mainCube: { x: centerX - 45, y: centerY - 25 },
-    topStick: { x: centerX + 115, y: centerY - 65 },
-    orb: { x: centerX + 45, y: centerY - 38 },
-    smallNodeRight: { x: centerX + 180, y: centerY - 20 },
-    smallNodeLeft: { x: centerX - 180, y: centerY + 40 },
-    bottomStick: { x: centerX - 35, y: centerY + 160 },
-    bottomCube: { x: centerX + 25, y: centerY + 140 },
-    cylinderLeft: { x: centerX - 140, y: centerY + 120 },
-    cylinderRight: { x: centerX + 140, y: centerY + 80 },
-    miniCubeTop: { x: centerX + 15, y: centerY - 140 },
-    miniCubeBottom: { x: centerX - 110, y: centerY + 220 },
+    topCube: { x: centerX - 120 * spread, y: centerY - 90 * spread },
+    mainCube: { x: centerX - 45 * spread, y: centerY - 25 * spread },
+    topStick: { x: centerX + 115 * spread, y: centerY - 65 * spread },
+    orb: { x: centerX + 45 * spread, y: centerY - 38 * spread },
+    smallNodeRight: { x: centerX + 180 * spread, y: centerY - 20 * spread },
+    smallNodeLeft: { x: centerX - 180 * spread, y: centerY + 40 * spread },
+    bottomStick: { x: centerX - 35 * spread, y: centerY + 160 * spread },
+    bottomCube: { x: centerX + 25 * spread, y: centerY + 140 * spread },
+    cylinderLeft: { x: centerX - 140 * spread, y: centerY + 120 * spread },
+    cylinderRight: { x: centerX + 140 * spread, y: centerY + 80 * spread },
+    miniCubeTop: { x: centerX + 15 * spread, y: centerY - 140 * spread },
+    miniCubeBottom: { x: centerX - 110 * spread, y: centerY + 220 * spread },
   };
 
   return (
@@ -286,62 +289,62 @@ export const InteractiveHeroCanvas = () => {
     >
       {/* 1. Far Top Mini Cube */}
       <DraggableItem initialPos={shapePositions.miniCubeTop} className="float-anim-1">
-        <CrispIsometricCube size={85} idSuffix="mini1" topGradient={["#fef08a", "#b45309", "#451a03"]} />
+        <CrispIsometricCube size={Math.round(85 * scale)} idSuffix="mini1" topGradient={["#fef08a", "#b45309", "#451a03"]} />
       </DraggableItem>
 
       {/* 2. Top-Left Cube */}
       <DraggableItem initialPos={shapePositions.topCube} className="float-anim-1">
-        <CrispIsometricCube size={145} idSuffix="top1" topGradient={["#fbbf24", "#b45309", "#451a03"]} />
+        <CrispIsometricCube size={Math.round(145 * scale)} idSuffix="top1" topGradient={["#fbbf24", "#b45309", "#451a03"]} />
       </DraggableItem>
 
       {/* 3. Top-Right Tilted Brown Stick */}
       <DraggableItem initialPos={shapePositions.topStick} className="float-anim-3">
-        <CrispTiltedStick width={42} height={125} angle={24} />
+        <CrispTiltedStick width={Math.round(42 * scale)} height={Math.round(125 * scale)} angle={24} />
       </DraggableItem>
 
       {/* 4. Main Center Glowing Cube */}
       <DraggableItem initialPos={shapePositions.mainCube} className="float-anim-2">
-        <CrispIsometricCube size={195} idSuffix="main" glow={true} />
+        <CrispIsometricCube size={Math.round(195 * scale)} idSuffix="main" glow={true} />
       </DraggableItem>
 
       {/* 5. Glowing Warm Apex Orb */}
       <DraggableItem initialPos={shapePositions.orb} className="float-anim-orb">
-        <CrispGlowingOrb size={22} color="#fef08a" />
+        <CrispGlowingOrb size={Math.round(22 * scale)} color="#fef08a" />
       </DraggableItem>
 
       {/* 6. Right Side Cyan Glowing Node */}
       <DraggableItem initialPos={shapePositions.smallNodeRight} className="float-anim-3">
-        <CrispGlowingOrb size={16} color="#67d9ec" />
+        <CrispGlowingOrb size={Math.round(16 * scale)} color="#67d9ec" />
       </DraggableItem>
 
       {/* 7. Left Side Pink Glowing Node */}
       <DraggableItem initialPos={shapePositions.smallNodeLeft} className="float-anim-2">
-        <CrispGlowingOrb size={18} color="#e1068c" />
+        <CrispGlowingOrb size={Math.round(18 * scale)} color="#e1068c" />
       </DraggableItem>
 
       {/* 8. Left Side Cylinder */}
       <DraggableItem initialPos={shapePositions.cylinderLeft} className="float-anim-1">
-        <CrispCylinder width={60} height={110} />
+        <CrispCylinder width={Math.round(60 * scale)} height={Math.round(110 * scale)} />
       </DraggableItem>
 
       {/* 9. Right Side Cylinder */}
       <DraggableItem initialPos={shapePositions.cylinderRight} className="float-anim-3">
-        <CrispCylinder width={70} height={125} />
+        <CrispCylinder width={Math.round(70 * scale)} height={Math.round(125 * scale)} />
       </DraggableItem>
 
       {/* 10. Bottom Tilted Brown Stick */}
       <DraggableItem initialPos={shapePositions.bottomStick} className="float-anim-1">
-        <CrispTiltedStick width={38} height={115} angle={-32} />
+        <CrispTiltedStick width={Math.round(38 * scale)} height={Math.round(115 * scale)} angle={-32} />
       </DraggableItem>
 
       {/* 11. Bottom-Right Dark Cube */}
       <DraggableItem initialPos={shapePositions.bottomCube} className="float-anim-2">
-        <CrispIsometricCube size={155} idSuffix="bot1" topGradient={["#334155", "#1e293b", "#0f172a"]} />
+        <CrispIsometricCube size={Math.round(155 * scale)} idSuffix="bot1" topGradient={["#334155", "#1e293b", "#0f172a"]} />
       </DraggableItem>
 
       {/* 12. Bottom-Left Mini Cube */}
       <DraggableItem initialPos={shapePositions.miniCubeBottom} className="float-anim-3">
-        <CrispIsometricCube size={95} idSuffix="mini2" topGradient={["#64748b", "#1e293b", "#0f172a"]} />
+        <CrispIsometricCube size={Math.round(95 * scale)} idSuffix="mini2" topGradient={["#64748b", "#1e293b", "#0f172a"]} />
       </DraggableItem>
     </div>
   );

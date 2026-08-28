@@ -21,14 +21,7 @@ const Projects = () => {
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 20px", width: "100%" }}>
         <ScrollFadeIn>
           <h1 className="section-title">My Projects</h1>
-          <p
-            style={{
-              color: "#67D9EC",
-              textAlign: "center",
-              fontSize: "1.2rem",
-              marginBottom: "40px",
-            }}
-          >
+          <p className="projects-subtitle">
             A collection of software projects, applications, and research work I&apos;ve built.
           </p>
         </ScrollFadeIn>

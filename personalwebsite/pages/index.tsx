@@ -92,10 +92,10 @@ const Home: NextPage = () => {
           <Navigation navbar={navbar} />
         </div>
 
-        <div style={{ position: "relative", zIndex: 10, textAlign: "center", marginTop: "12vh", padding: "0 20px", width: "100%" }}>
+        <div className="hero-content-wrap">
           <ScrollFadeIn>
             <h1 className="hero-title">Vinay Rao</h1>
-            <div style={{ marginTop: "20px" }}>
+            <div className="typed-text-wrap">
               <Typed
                 strings={[
                   "Full Stack Developer.",
@@ -106,12 +106,7 @@ const Home: NextPage = () => {
                 typeSpeed={75}
                 backSpeed={70}
                 loop
-                style={{
-                  color: "#67D9EC",
-                  fontSize: "1.8rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "2px",
-                }}
+                className="hero-typed-text"
               />
             </div>
           </ScrollFadeIn>
@@ -119,9 +114,8 @@ const Home: NextPage = () => {
       </div>
 
       <div
+        className="home-sections-wrap"
         style={{
-          backgroundColor: "#1A191E",
-          padding: "60px 20px",
           display: showContent ? "block" : "none",
         }}
       >
@@ -159,22 +153,13 @@ const Home: NextPage = () => {
             </div>
           </ScrollFadeIn>
 
-          <div style={{ marginTop: "100px" }}>
+          <div className="tech-exp-section">
             <ScrollFadeIn>
               <h2 className="section-title">Technical Experience</h2>
             </ScrollFadeIn>
 
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: "40px",
-                marginTop: "40px",
-              }}
-            >
-              <ScrollFadeIn delay={100} style={{ flex: "1 1 300px", maxWidth: "480px" }}>
+            <div className="tech-exp-container">
+              <ScrollFadeIn delay={100} className="tech-exp-lottie-col">
                 <div style={{ width: "100%", margin: "0 auto" }}>
                   <Lottie
                     animationData={languages}
@@ -183,17 +168,9 @@ const Home: NextPage = () => {
                 </div>
               </ScrollFadeIn>
 
-              <ScrollFadeIn delay={150} style={{ flex: "1 1 300px", maxWidth: "620px" }}>
+              <ScrollFadeIn delay={150} className="tech-exp-text-col">
                 <div>
-                  <h3
-                    style={{
-                      fontSize: "1.8rem",
-                      color: "#ffffff",
-                      textTransform: "uppercase",
-                      letterSpacing: "2px",
-                      marginBottom: "24px",
-                    }}
-                  >
+                  <h3 className="tech-exp-title">
                     Key Highlights & Skills
                   </h3>
 
@@ -245,48 +222,17 @@ const Home: NextPage = () => {
         </div>
 
         <ScrollFadeIn delay={200}>
-          <footer
-            style={{
-              backgroundColor: "#16151a",
-              borderRadius: "28px",
-              border: "1px solid rgba(255,255,255,0.1)",
-              padding: "50px 24px",
-              marginTop: "100px",
-              textAlign: "center",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
-            }}
-          >
-            <p style={{ fontSize: "1.25rem", color: "#a0aec0", margin: "0 0 24px 0", fontWeight: 500 }}>
+          <footer className="footer-container">
+            <p className="footer-subtitle">
               Interested in collaborating or getting in touch?
             </p>
 
             {/* Toggle Switch */}
-            <div
-              style={{
-                display: "inline-flex",
-                backgroundColor: "rgba(255, 255, 255, 0.06)",
-                padding: "6px",
-                borderRadius: "50px",
-                border: "1px solid rgba(255, 255, 255, 0.12)",
-                marginBottom: "28px",
-                gap: "8px",
-              }}
-            >
+            <div className="email-toggle-container">
               <button
                 type="button"
                 onClick={() => setEmailTab("personal")}
-                style={{
-                  background: emailTab === "personal" ? "#67D9EC" : "transparent",
-                  color: emailTab === "personal" ? "#1A191E" : "#a0aec0",
-                  border: "none",
-                  borderRadius: "40px",
-                  padding: "10px 24px",
-                  fontSize: "0.95rem",
-                  fontWeight: 800,
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  boxShadow: emailTab === "personal" ? "0 4px 18px rgba(103, 217, 236, 0.45)" : "none",
-                }}
+                className={`email-toggle-btn ${emailTab === "personal" ? "active" : ""}`}
               >
                 Personal Email
               </button>
@@ -294,49 +240,21 @@ const Home: NextPage = () => {
               <button
                 type="button"
                 onClick={() => setEmailTab("school")}
-                style={{
-                  background: emailTab === "school" ? "#67D9EC" : "transparent",
-                  color: emailTab === "school" ? "#1A191E" : "#a0aec0",
-                  border: "none",
-                  borderRadius: "40px",
-                  padding: "10px 24px",
-                  fontSize: "0.95rem",
-                  fontWeight: 800,
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  boxShadow: emailTab === "school" ? "0 4px 18px rgba(103, 217, 236, 0.45)" : "none",
-                }}
+                className={`email-toggle-btn ${emailTab === "school" ? "active" : ""}`}
               >
                 School Email (UC Berkeley)
               </button>
             </div>
 
             {/* Email Address Display */}
-            <div style={{ minHeight: "55px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div className="email-display-container">
               {emailTab === "personal" ? (
                 <div>
-                  <span
-                    style={{
-                      display: "block",
-                      color: "#67D9EC",
-                      fontSize: "0.85rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "1.5px",
-                      marginBottom: "6px",
-                      fontWeight: 700,
-                    }}
-                  >
+                  <span className="email-label">
                     Primary Personal Address
                   </span>
                   <a
                     href="mailto:vinay23.rao@gmail.com"
-                    style={{
-                      color: "#ffffff",
-                      fontSize: "1.8rem",
-                      fontWeight: 800,
-                      textDecoration: "none",
-                      transition: "color 0.2s ease",
-                    }}
                     className="email-link"
                   >
                     vinay23.rao@gmail.com
@@ -344,28 +262,11 @@ const Home: NextPage = () => {
                 </div>
               ) : (
                 <div>
-                  <span
-                    style={{
-                      display: "block",
-                      color: "#67D9EC",
-                      fontSize: "0.85rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "1.5px",
-                      marginBottom: "6px",
-                      fontWeight: 700,
-                    }}
-                  >
+                  <span className="email-label">
                     Official Student Address
                   </span>
                   <a
                     href="mailto:vinay23_rao@berkeley.edu"
-                    style={{
-                      color: "#ffffff",
-                      fontSize: "1.8rem",
-                      fontWeight: 800,
-                      textDecoration: "none",
-                      transition: "color 0.2s ease",
-                    }}
                     className="email-link"
                   >
                     vinay23_rao@berkeley.edu

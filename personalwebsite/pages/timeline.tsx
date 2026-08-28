@@ -20,14 +20,7 @@ const Timeline = () => {
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "40px 20px", width: "100%" }}>
         <ScrollFadeIn>
           <h1 className="section-title">Experience & Timeline</h1>
-          <p
-            style={{
-              color: "#67D9EC",
-              textAlign: "center",
-              fontSize: "1.2rem",
-              marginBottom: "60px",
-            }}
-          >
+          <p className="timeline-subtitle">
             All of my engineering experience, projects, and milestones developed so far.
           </p>
         </ScrollFadeIn>
