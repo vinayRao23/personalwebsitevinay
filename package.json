@@ -5,7 +5,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "postinstall": "cd personalwebsite && npm install",
+    "postinstall": "cd personalwebsite && npm install --legacy-peer-deps",
     "dev": "npm --prefix personalwebsite run dev",
     "build": "cd personalwebsite && npm run build",
     "start": "npm --prefix personalwebsite run start",
