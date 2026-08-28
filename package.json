@@ -9,5 +9,8 @@
     "build": "npm --prefix personalwebsite run build",
     "start": "npm --prefix personalwebsite run start",
     "lint": "npm --prefix personalwebsite run lint"
+  },
+  "devDependencies": {
+    "next": "13.4.4"
   }
 }
