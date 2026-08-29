@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import navbar from "../data/navbar";
 const Typed = dynamic(() => import("react-typed"), { ssr: false });
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
-import loader from "../public/loader.json";
 import languages from "../public/languages.json";
 import React, { useState, useEffect } from "react";
 import homePageProjects from "../data/homePageProjects";
@@ -12,10 +11,10 @@ import { useRouter } from "next/router";
 import { Navigation } from "../components/Navigation";
 import { ScrollFadeIn } from "../components/ScrollFadeIn";
 import { InteractiveHeroCanvas } from "../components/InteractiveHeroCanvas";
+import { SplashScreen } from "../components/SplashScreen";
 
 const Home: NextPage = () => {
   const [showContent, setShowContent] = useState(false);
-  const [startAnimation, setStartAnimation] = useState(false);
   const [shouldPlayLoader, setShouldPlayLoader] = useState(false);
   const router = useRouter();
 
@@ -23,25 +22,12 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const hasLoadedOnce = sessionStorage.getItem("hasLoadedRocketOnce");
+      const hasLoadedOnce = sessionStorage.getItem("hasLoadedSplashOnce");
       if (hasLoadedOnce) {
         setShowContent(true);
         setShouldPlayLoader(false);
       } else {
         setShouldPlayLoader(true);
-        const timer1 = setTimeout(() => {
-          setStartAnimation(true);
-        }, 3000);
-
-        const timer2 = setTimeout(() => {
-          setShowContent(true);
-          sessionStorage.setItem("hasLoadedRocketOnce", "true");
-        }, 5000);
-
-        return () => {
-          clearTimeout(timer1);
-          clearTimeout(timer2);
-        };
       }
     }
   }, []);
@@ -62,30 +48,16 @@ const Home: NextPage = () => {
         <InteractiveHeroCanvas />
 
         {shouldPlayLoader && !showContent && (
-          <div
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              display: "flex",
-              backgroundColor: "#081A26",
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              zIndex: 999,
+          <SplashScreen
+            duration={3200}
+            onComplete={() => {
+              setShowContent(true);
+              setShouldPlayLoader(false);
+              if (typeof window !== "undefined") {
+                sessionStorage.setItem("hasLoadedSplashOnce", "true");
+              }
             }}
-            className={startAnimation ? "fadeoutLeft" : ""}
-          >
-            <Lottie
-              loop={false}
-              animationData={loader}
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-            />
-          </div>
+          />
         )}
 
         <div style={{ position: "relative", zIndex: 10, width: "100%" }}>

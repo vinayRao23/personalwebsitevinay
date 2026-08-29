@@ -794,7 +794,7 @@ nav > div > div > div > ul > li > a {
 }
 
 button:hover {
-  box-shadow: 1px 1px 10px 10px #F2B8C6 
+  box-shadow: 0 0 15px 2px #67D9EC 
 }
 
 .card {
